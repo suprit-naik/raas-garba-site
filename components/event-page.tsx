@@ -1,12 +1,93 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { CalendarDays, Clock, Ticket, MapPin, Instagram, Sparkles, ChevronLeft, ChevronRight, Camera, Phone, MessageCircle } from "lucide-react"
 import e from "@/data/event.json"
 import { Booking } from "@/components/booking"
 
 const icons = [CalendarDays, Clock, Ticket, MapPin]
 const colors = ["#F4A51C", "#E23B3B", "#FBF1DC"]
+const particleColors = ["#F4A51C", "#E23B3B", "#FBF1DC", "#FF6B35", "#C41E3A", "#FFD700"]
+
+// Floating bokeh particles that drift upward like festive lights
+function FloatingParticles() {
+  return (
+    <div className="particle-container" aria-hidden>
+      {Array.from({ length: 30 }, (_, i) => {
+        const size = 4 + Math.random() * 10
+        const color = particleColors[i % particleColors.length]
+        const left = Math.random() * 100
+        const delay = Math.random() * 15
+        const duration = 12 + Math.random() * 18
+        const startY = 80 + Math.random() * 40
+        const drift = -30 + Math.random() * 60
+        return (
+          <div
+            key={i}
+            className="particle"
+            style={{
+              width: size,
+              height: size,
+              background: `radial-gradient(circle, ${color} 0%, ${color}00 70%)`,
+              left: `${left}%`,
+              top: `${startY}%`,
+              animationName: i % 2 === 0 ? "float-up" : "float-drift",
+              animationDuration: `${duration}s`,
+              animationDelay: `${delay}s`,
+              animationIterationCount: "infinite",
+              animationTimingFunction: "ease-in-out",
+              filter: size > 10 ? "blur(1px)" : "none",
+              ['--drift' as string]: `${drift}px`,
+            }}
+          />
+        )
+      })}
+    </div>
+  )
+}
+
+// Sparkle dots around a section
+function SparkleField({ count = 12 }: { count?: number }) {
+  return (
+    <>
+      {Array.from({ length: count }, (_, i) => (
+        <div
+          key={i}
+          className="sparkle-dot"
+          style={{
+            left: `${5 + Math.random() * 90}%`,
+            top: `${5 + Math.random() * 90}%`,
+            animationDelay: `${Math.random() * 3}s`,
+            animationDuration: `${1.5 + Math.random() * 2}s`,
+            width: `${3 + Math.random() * 4}px`,
+            height: `${3 + Math.random() * 4}px`,
+            background: particleColors[i % particleColors.length],
+          }}
+        />
+      ))}
+    </>
+  )
+}
+
+// Hook to add IntersectionObserver-based scroll reveal
+function useScrollReveal() {
+  useEffect(() => {
+    const elements = document.querySelectorAll('.reveal')
+    if (!elements.length) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    )
+    elements.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
 
 // Concentric dotted rings: the garba circle, drawn as bandhani
 function Rings() {
@@ -63,6 +144,7 @@ function Star() {
 
   return (
     <section className="relative overflow-hidden">
+      <SparkleField count={18} />
       <Toran />
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 pb-14 pt-8 md:grid-cols-[minmax(0,420px)_1fr] md:gap-16 md:px-12 md:pb-20">
         <div className="mx-auto w-full max-w-[340px] md:max-w-none">
@@ -127,7 +209,7 @@ function Star() {
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-sm font-semibold text-accent">
             <Sparkles className="h-4 w-4" /> {s.intro}
           </div>
-          <h2 className="mt-3 font-serif text-6xl font-semibold italic leading-[0.9] text-primary md:text-8xl">{s.name}</h2>
+          <h2 className="mt-3 font-serif text-6xl font-semibold italic leading-[0.9] md:text-8xl shimmer-text">{s.name}</h2>
           <p className="mx-auto mt-6 max-w-md text-lg font-medium text-foreground/90 md:mx-0">{s.bio}</p>
 
           <div className="mt-6">
@@ -173,30 +255,35 @@ function Star() {
 function BookButton({ className = "" }: { className?: string }) {
   return (
     <a href="#book"
-      className={`inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-bold text-accent-foreground transition active:scale-95 md:hover:brightness-110 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary ${className}`}>
+      className={`inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-bold text-accent-foreground transition active:scale-95 md:hover:brightness-110 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary pulse-cta ${className}`}>
       <Ticket className="h-5 w-5" /> Book tickets from {e.price}
     </a>
   )
 }
 
 export function EventPage() {
+  useScrollReveal()
+
   return (
     <main className="min-h-screen gradient-bg pb-28 md:pb-0">
+      <FloatingParticles />
+
       {/* Hero */}
       <section className="relative overflow-hidden">
+        <SparkleField count={15} />
         <div className="absolute -right-40 -top-24 h-[130vw] w-[130vw] opacity-40 md:hidden"><Rings /></div>
 
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 pb-10 pt-20 md:grid-cols-[1.1fr_1fr] md:px-12 md:py-24">
           <div>
-            <img src="/infinite-events-logo.jpg" alt="Infinite Events" className="h-20 w-auto mb-4 rounded-lg mix-blend-lighten" />
-            <h1 className="mt-3 font-serif font-semibold italic leading-[0.85] text-primary">
-              <span className="block text-7xl md:text-[8.5rem]">{e.title}</span>
-              <span className="mt-3 block font-sans text-3xl font-light not-italic tracking-tight text-accent md:text-5xl">{e.season}</span>
+            <img src="/infinite-events-logo.jpg" alt="Infinite Events" className="h-20 w-auto mb-4 rounded-lg mix-blend-lighten fade-in-up" />
+            <h1 className="mt-3 font-serif font-semibold italic leading-[0.85] text-primary fade-in-up fade-in-up-d1">
+              <span className="block text-7xl md:text-[8.5rem] shimmer-text">{e.title}</span>
+              <span className="mt-3 block font-sans text-3xl font-light not-italic tracking-tight text-accent md:text-5xl fade-in-up fade-in-up-d2">{e.season}</span>
             </h1>
-            <p className="mt-6 max-w-md text-lg font-medium text-foreground/90">{e.tagline}</p>
-            <div className="mt-8 hidden md:block"><BookButton /></div>
-            <p className="mt-3 hidden text-sm text-foreground/70 md:block">Adults ₹599, kids ₹350 • Complimentary food included • Instant WhatsApp booking.</p>
+            <p className="mt-6 max-w-md text-lg font-medium text-foreground/90 fade-in-up fade-in-up-d3">{e.tagline}</p>
+            <div className="mt-8 hidden md:block fade-in-up fade-in-up-d4"><BookButton /></div>
+            <p className="mt-3 hidden text-sm text-foreground/70 md:block fade-in-up fade-in-up-d4">Adults ₹599, kids ₹350 • Complimentary food included • Instant WhatsApp booking.</p>
           </div>
           <div className="hidden md:block relative">
             {/* Ulka Gupta cutout as hero visual */}
@@ -294,7 +381,7 @@ export function EventPage() {
       )}
 
       {/* Photos */}
-      <section className="mx-auto max-w-6xl px-6 pt-10 md:px-12 md:pt-16">
+      <section className="reveal mx-auto max-w-6xl px-6 pt-10 md:px-12 md:pt-16">
         <h2 className="mb-6 font-serif text-3xl font-semibold italic text-primary md:text-4xl">What the night feels like</h2>
         <div className="scrollbar-hide -mx-6 flex snap-x gap-3 overflow-x-auto px-6 md:hidden">
           {e.photos.map((p) => <img key={p.src} src={p.src} alt={p.alt} loading="lazy" className="h-72 w-60 flex-none snap-start rounded-2xl object-cover" />)}
@@ -307,7 +394,7 @@ export function EventPage() {
       <div className="mx-auto grid max-w-6xl gap-6 px-6 py-10 md:grid-cols-2 md:px-12 md:py-16">
         <Booking />
 
-        <section className="glass-strong rounded-3xl p-6 md:p-8">
+        <section className="reveal glass-strong rounded-3xl p-6 md:p-8 hover-lift">
           <h2 className="mb-4 font-serif text-3xl font-semibold italic text-primary">Getting there</h2>
           <p className="font-bold">{e.venue.name}</p>
           <p className="mt-1 text-foreground/80">{e.venue.address}</p>
@@ -316,7 +403,7 @@ export function EventPage() {
           </a>
         </section>
 
-        <section className="glass-strong rounded-3xl p-6 md:p-8">
+        <section className="reveal glass-strong rounded-3xl p-6 md:p-8 hover-lift">
           <h2 className="mb-5 font-serif text-3xl font-semibold italic text-primary">Before you come</h2>
           <ul className="space-y-4">
             {e.tips.map((t) => (<li key={t.title}><h3 className="font-bold">{t.title}</h3><p className="text-sm font-medium leading-relaxed text-foreground/80">{t.description}</p></li>))}
@@ -325,11 +412,11 @@ export function EventPage() {
       </div>
 
       {/* Past events */}
-      <section className="mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
+      <section className="reveal mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
         <h2 className="mb-6 font-serif text-3xl font-semibold italic text-primary md:text-4xl">Past events</h2>
         <ul className="scrollbar-hide -mx-6 flex snap-x gap-4 overflow-x-auto px-6 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
           {e.pastEvents.map((p) => (
-            <li key={p.title + p.edition} className="relative w-64 flex-none snap-start overflow-hidden rounded-3xl md:w-auto">
+            <li key={p.title + p.edition} className="relative w-64 flex-none snap-start overflow-hidden rounded-3xl md:w-auto hover-lift">
               <img src={p.src} alt={p.alt} loading="lazy" className="aspect-[4/5] w-full object-cover opacity-80" />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent p-5 pt-16">
                 <h3 className="font-serif text-2xl font-semibold italic text-primary">{p.title}</h3>
@@ -341,12 +428,12 @@ export function EventPage() {
       </section>
 
       {/* Contact */}
-      <section className="mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
+      <section className="reveal mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
         <h2 className="mb-2 font-serif text-3xl font-semibold italic text-primary md:text-4xl">Contact us</h2>
         <p className="mb-6 font-medium text-foreground/80">For assistance contact:</p>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {e.contacts.map((c) => (
-            <li key={c.phone} className="glass-strong rounded-3xl p-5">
+            <li key={c.phone} className="glass-strong rounded-3xl p-5 hover-lift">
               <p className="text-lg font-bold">{c.name}</p>
               <p className="mb-4 font-medium text-foreground/75">+91 {c.phone.slice(2, 7)} {c.phone.slice(7)}</p>
               <div className="grid grid-cols-2 gap-2">
