@@ -3,8 +3,7 @@
   "title": "Raas Garba",
   "season": "Season 3",
   "tagline": "An evening of garba and dandiya in Sundargarh, with star guest Ulka Gupta and DJ Dev on the console. Friday, 16 October, from 6 PM.",
-  "price": "₹599",
-  "bookingUrl": "https://luma.com/qcwzbbbh",
+  "price": "₹350",
   "instagram": "https://www.instagram.com/infiniteevents2026",
   "hosts": "Infinite Events",
   "info": [
@@ -18,25 +17,11 @@
     },
     {
       "label": "Ticket",
-      "value": "₹599 per person"
+      "value": "₹599 adults, ₹350 kids"
     },
     {
       "label": "Venue",
       "value": "JDR Hotel, Sundargarh"
-    }
-  ],
-  "steps": [
-    {
-      "title": "Tap Book tickets",
-      "description": "It opens the event on Luma. Sign in with your email or phone number."
-    },
-    {
-      "title": "Request your ticket",
-      "description": "Registration needs host approval, so your request goes to the Infinite Events team first."
-    },
-    {
-      "title": "Get your ticket by email",
-      "description": "Once approved, Luma sends the ticket to you. Show it on your phone at the entry."
     }
   ],
   "venue": {
@@ -50,8 +35,8 @@
       "description": "Chaniya choli, kediyu, kurta. Comfortable footwear helps after the third round."
     },
     {
-      "title": "Keep your ticket handy",
-      "description": "Have the Luma email open before you reach the gate so entry stays quick."
+      "title": "Keep your confirmation handy",
+      "description": "Have the team's WhatsApp confirmation open on your phone when you reach the gate."
     },
     {
       "title": "Come a little early",
@@ -138,5 +123,39 @@
       "Holi Carnival 4.0",
       "Boiler Room"
     ]
-  }
+  },
+  "tickets": [
+    {
+      "id": "adult",
+      "label": "Adults",
+      "price": 599,
+      "note": ""
+    },
+    {
+      "id": "kids",
+      "label": "Kids",
+      "price": 350,
+      "note": ""
+    }
+  ],
+  "upi": {
+    "id": "7008907564@ptsbi",
+    "name": "Infinite Events"
+  },
+  "whatsapp": "917008907564",
+  "sheetUrl": "https://script.google.com/macros/s/AKfycbwt2TpzMqbOISCYh2G780ezE17R4BdMJjX7ZkA8rhauLLA5umSPNnd-CZtT5pHQxYqq/exec",
+  "contacts": [
+    {
+      "name": "Puja Beriha",
+      "phone": "919439880809"
+    },
+    {
+      "name": "Sujata Patel",
+      "phone": "919438515762"
+    },
+    {
+      "name": "Suprit Kumar Naik",
+      "phone": "917008907564"
+    }
+  ]
 }

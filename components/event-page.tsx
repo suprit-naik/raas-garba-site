@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { CalendarDays, Clock, Ticket, MapPin, Instagram, Sparkles, ChevronLeft, ChevronRight, Camera } from "lucide-react"
+import { CalendarDays, Clock, Ticket, MapPin, Instagram, Sparkles, ChevronLeft, ChevronRight, Camera, Phone, MessageCircle } from "lucide-react"
 import e from "@/data/event.json"
+import { Booking } from "@/components/booking"
 
 const icons = [CalendarDays, Clock, Ticket, MapPin]
 const colors = ["#F4A51C", "#E23B3B", "#FBF1DC"]
@@ -120,37 +121,6 @@ function Star() {
               )}
             </div>
           </div>
-
-          {/* Interactive photo selector thumbnails */}
-          {photos.length > 1 && (
-            <div className="mt-4 flex items-center justify-center gap-3">
-              {photos.map((p, idx) => {
-                const isActive = idx === activeIdx
-                return (
-                  <button
-                    key={p.src}
-                    type="button"
-                    onClick={() => setActiveIdx(idx)}
-                    className={`group relative flex items-center gap-2.5 rounded-2xl border p-1.5 pr-3.5 text-xs font-semibold transition-all duration-300 ${isActive
-                        ? "border-accent bg-accent/15 text-accent shadow-[0_0_20px_rgba(244,165,28,0.25)] ring-1 ring-accent"
-                        : "border-border/60 bg-background/50 text-foreground/70 hover:border-accent/50 hover:bg-white/5 hover:text-foreground"
-                      }`}
-                  >
-                    <img
-                      src={p.src}
-                      alt={p.alt}
-                      className={`h-11 w-11 rounded-xl object-cover object-top transition duration-300 ${isActive ? "scale-105" : "opacity-80 group-hover:opacity-100"
-                        }`}
-                    />
-                    <div className="text-left">
-                      <span className="block font-bold">{p.label}</span>
-                      <span className="block text-[10px] font-normal opacity-70">Photo {idx + 1}</span>
-                    </div>
-                  </button>
-                )
-              })}
-            </div>
-          )}
         </div>
 
         <div className="text-center md:text-left">
@@ -202,9 +172,9 @@ function Star() {
 
 function BookButton({ className = "" }: { className?: string }) {
   return (
-    <a href={e.bookingUrl} target="_blank" rel="noopener noreferrer"
+    <a href="#book"
       className={`inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-bold text-accent-foreground transition active:scale-95 md:hover:brightness-110 focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-primary ${className}`}>
-      <Ticket className="h-5 w-5" /> Book tickets for {e.price}
+      <Ticket className="h-5 w-5" /> Book tickets from {e.price}
     </a>
   )
 }
@@ -216,19 +186,6 @@ export function EventPage() {
       <section className="relative overflow-hidden">
         <div className="absolute -right-40 -top-24 h-[130vw] w-[130vw] opacity-40 md:hidden"><Rings /></div>
 
-        {/* Ulka Gupta cutout as a dramatic background on desktop */}
-        <div className="pointer-events-none absolute inset-0 hidden md:block" aria-hidden>
-          <img
-            src="/star/ulka-gupta-cutout.jpg"
-            alt=""
-            className="absolute -right-10 bottom-0 h-[110%] w-auto object-contain object-bottom opacity-[0.08] mix-blend-screen"
-            style={{
-              maskImage: "radial-gradient(ellipse 80% 80% at 60% 50%, black 30%, transparent 80%)",
-              WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 60% 50%, black 30%, transparent 80%)",
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
-        </div>
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 pb-10 pt-20 md:grid-cols-[1.1fr_1fr] md:px-12 md:py-24">
           <div>
@@ -239,21 +196,23 @@ export function EventPage() {
             </h1>
             <p className="mt-6 max-w-md text-lg font-medium text-foreground/90">{e.tagline}</p>
             <div className="mt-8 hidden md:block"><BookButton /></div>
-            <p className="mt-3 hidden text-sm text-foreground/70 md:block">Opens Luma in a new tab. Requests are approved by the hosts.</p>
+            <p className="mt-3 hidden text-sm text-foreground/70 md:block">Adults ₹599, kids ₹350. Pay by UPI, confirm on WhatsApp.</p>
           </div>
           <div className="hidden md:block relative">
             {/* Ulka Gupta cutout as hero visual */}
             <div className="relative aspect-[3/4] max-h-[580px] mx-auto">
               <div className="absolute inset-[-15%] opacity-30"><Rings /></div>
+              <div className="relative z-10 h-full w-full drop-shadow-[0_0_60px_rgba(244,165,28,0.3)]">
               <img
-                src="/star/ulka-gupta-cutout.jpg"
+                src="/star/ulka-gupta-cutout.png"
                 alt="Ulka Gupta"
-                className="relative z-10 h-full w-full object-contain object-bottom drop-shadow-[0_0_60px_rgba(244,165,28,0.3)]"
+                className="h-full w-full object-contain object-bottom"
                 style={{
-                  maskImage: "radial-gradient(ellipse 60% 70% at 50% 38%, black 45%, transparent 85%)",
-                  WebkitMaskImage: "radial-gradient(ellipse 60% 70% at 50% 38%, black 45%, transparent 85%)",
+                  maskImage: "linear-gradient(to bottom, black 70%, transparent 98%)",
+                  WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 98%)",
                 }}
               />
+              </div>
             </div>
           </div>
         </div>
@@ -346,18 +305,7 @@ export function EventPage() {
       </section>
 
       <div className="mx-auto grid max-w-6xl gap-6 px-6 py-10 md:grid-cols-2 md:px-12 md:py-16">
-        <section className="glass glow-accent rounded-3xl p-6 md:row-span-2 md:p-10">
-          <h2 className="mb-8 font-serif text-3xl font-semibold italic text-primary md:text-4xl">How booking works</h2>
-          <ol className="space-y-8">
-            {e.steps.map((s, i) => (
-              <li key={s.title} className="flex gap-5">
-                <span className="font-serif text-4xl font-light italic text-accent/70">{i + 1}</span>
-                <div><h3 className="mb-1 text-xl font-semibold">{s.title}</h3><p className="font-medium leading-relaxed text-foreground/80">{s.description}</p></div>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-10 hidden md:block"><BookButton className="w-full" /></div>
-        </section>
+        <Booking />
 
         <section className="glass-strong rounded-3xl p-6 md:p-8">
           <h2 className="mb-4 font-serif text-3xl font-semibold italic text-primary">Getting there</h2>
@@ -386,6 +334,24 @@ export function EventPage() {
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent p-5 pt-16">
                 <h3 className="font-serif text-2xl font-semibold italic text-primary">{p.title}</h3>
                 <p className="font-medium text-foreground/85">{p.edition}{p.when && `, ${p.when}`}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Contact */}
+      <section className="mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
+        <h2 className="mb-2 font-serif text-3xl font-semibold italic text-primary md:text-4xl">Contact us</h2>
+        <p className="mb-6 font-medium text-foreground/80">Questions about tickets or the event? Call or WhatsApp any of us.</p>
+        <ul className="grid gap-4 md:grid-cols-3">
+          {e.contacts.map((c) => (
+            <li key={c.phone} className="glass-strong rounded-3xl p-5">
+              <p className="text-lg font-bold">{c.name}</p>
+              <p className="mb-4 font-medium text-foreground/75">+91 {c.phone.slice(2, 7)} {c.phone.slice(7)}</p>
+              <div className="grid grid-cols-2 gap-2">
+                <a href={`tel:+${c.phone}`} className="flex items-center justify-center gap-2 rounded-full border border-primary/40 py-3 font-semibold text-primary active:scale-95 md:hover:bg-white/10"><Phone className="h-4 w-4" /> Call</a>
+                <a href={`https://wa.me/${c.phone}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 font-semibold text-[#0b2e17] active:scale-95"><MessageCircle className="h-4 w-4" /> WhatsApp</a>
               </div>
             </li>
           ))}

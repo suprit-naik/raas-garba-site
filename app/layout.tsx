@@ -17,7 +17,7 @@ const _spaceGrotesk = Space_Grotesk({
 })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
-const desc = "Raas Garba Season 3 by Infinite Events. Friday, 16 October 2026, 6 PM at JDR Hotel, Sundargarh. Star guest Ulka Gupta. DJ Dev on the console. Tickets ₹599."
+const desc = "Raas Garba Season 3 by Infinite Events. Friday, 16 October 2026, 6 PM at JDR Hotel, Sundargarh. Star guest Ulka Gupta. DJ Dev on the console. Tickets ₹599, kids ₹350."
 
 export const metadata: Metadata = {
   title: "Raas Garba Season 3 | Infinite Events",
