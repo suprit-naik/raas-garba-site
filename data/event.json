@@ -1,0 +1,142 @@
+{
+  "presenter": "Infinite Events presents",
+  "title": "Raas Garba",
+  "season": "Season 3",
+  "tagline": "An evening of garba and dandiya in Sundargarh, with star guest Ulka Gupta and DJ Dev on the console. Friday, 16 October, from 6 PM.",
+  "price": "₹599",
+  "bookingUrl": "https://luma.com/qcwzbbbh",
+  "instagram": "https://www.instagram.com/infiniteevents2026",
+  "hosts": "Infinite Events",
+  "info": [
+    {
+      "label": "Date",
+      "value": "Fri, 16 Oct 2026"
+    },
+    {
+      "label": "Starts",
+      "value": "6:00 PM"
+    },
+    {
+      "label": "Ticket",
+      "value": "₹599 per person"
+    },
+    {
+      "label": "Venue",
+      "value": "JDR Hotel, Sundargarh"
+    }
+  ],
+  "steps": [
+    {
+      "title": "Tap Book tickets",
+      "description": "It opens the event on Luma. Sign in with your email or phone number."
+    },
+    {
+      "title": "Request your ticket",
+      "description": "Registration needs host approval, so your request goes to the Infinite Events team first."
+    },
+    {
+      "title": "Get your ticket by email",
+      "description": "Once approved, Luma sends the ticket to you. Show it on your phone at the entry."
+    }
+  ],
+  "venue": {
+    "name": "JDR Hotel (Jay Damoodar Residency)",
+    "address": "Rangadhipa, Sundargarh, Odisha 770002",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=JDR%20Hotel%20Sundargarh&query_place_id=ChIJu553R0vtIDoRLsgk046jk54"
+  },
+  "tips": [
+    {
+      "title": "Dress for the circle",
+      "description": "Chaniya choli, kediyu, kurta. Comfortable footwear helps after the third round."
+    },
+    {
+      "title": "Keep your ticket handy",
+      "description": "Have the Luma email open before you reach the gate so entry stays quick."
+    },
+    {
+      "title": "Come a little early",
+      "description": "Things start at 6 PM. Reaching by 5:45 gives you time to get through entry."
+    }
+  ],
+  "photos": [
+    {
+      "src": "https://images.unsplash.com/photo-1754244575428-8123e0d27ef3?w=1400&q=70&auto=format&fit=crop",
+      "alt": "Woman twirling in a colourful chaniya choli"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1734120113511-3fc3daa90633?w=1200&q=70&auto=format&fit=crop",
+      "alt": "Crowd dancing garba under the lights at night"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1716655359683-791d415c3f4c?w=800&q=70&auto=format&fit=crop",
+      "alt": "Girl in red holding a pair of dandiya sticks"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1774377767315-cb846a51725b?w=800&q=70&auto=format&fit=crop",
+      "alt": "Dhol player keeping the beat"
+    }
+  ],
+  "pastEvents": [
+    {
+      "title": "Vrindavan Ki Holi",
+      "edition": "Season 1",
+      "when": "2026",
+      "src": "https://images.unsplash.com/photo-1551757891-24a8dabd2708?w=900&q=70&auto=format&fit=crop",
+      "alt": "Hands covered in Holi colours"
+    },
+    {
+      "title": "Raas Garba",
+      "edition": "Season 2",
+      "when": "",
+      "src": "https://images.unsplash.com/photo-1774437897284-b2f7c4638c55?w=900&q=70&auto=format&fit=crop",
+      "alt": "Women in bright saris dancing garba"
+    },
+    {
+      "title": "Raas Garba",
+      "edition": "Season 1",
+      "when": "",
+      "src": "https://images.unsplash.com/photo-1603646315289-df77246f1694?w=900&q=70&auto=format&fit=crop",
+      "alt": "Dancer in red and gold festive attire"
+    }
+  ],
+  "star": {
+    "name": "Ulka Gupta",
+    "intro": "Star guest this season",
+    "bio": "Actor loved across India since she played young Manu in Jhansi Ki Rani. She joins Raas Garba Season 3 in Sundargarh on 16 October.",
+    "credits": [
+      "Jhansi Ki Rani",
+      "Banni Chow Home Delivery",
+      "Main Hoon Saath Tere",
+      "Rudhramadevi"
+    ],
+    "photo": "/star/ulka-gupta-1.jpg",
+    "photos": [
+      {
+        "src": "/star/ulka-gupta-1.jpg",
+        "alt": "Ulka Gupta in traditional blue saree",
+        "label": "Festive Look"
+      },
+      {
+        "src": "/star/ulka-gupta-2.jpg",
+        "alt": "Ulka Gupta portrait",
+        "label": "Portrait"
+      }
+    ]
+  },
+  "dj": {
+    "name": "DJ Dev",
+    "intro": "On the console",
+    "bio": "One of the most sought-after DJs in the region, DJ Dev has headlined events across Odisha and beyond. From Bollywood nights to Holi carnivals, his high-energy sets and seamless mixing keep the crowd on their feet all night.",
+    "photo": "/dj/dj-dev-presskit.png",
+    "eventsPhoto": "/dj/dj-dev-events.png",
+    "instagram": "https://www.instagram.com/dj_dev",
+    "credits": [
+      "Bollywood Night",
+      "Aquatic Beats",
+      "Ritual",
+      "Biggest Holi Concerts",
+      "Holi Carnival 4.0",
+      "Boiler Room"
+    ]
+  }
+}
