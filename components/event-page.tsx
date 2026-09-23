@@ -344,7 +344,7 @@ export function EventPage() {
       <section className="mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
         <h2 className="mb-2 font-serif text-3xl font-semibold italic text-primary md:text-4xl">Contact us</h2>
         <p className="mb-6 font-medium text-foreground/80">For assistance contact:</p>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {e.contacts.map((c) => (
             <li key={c.phone} className="glass-strong rounded-3xl p-5">
               <p className="text-lg font-bold">{c.name}</p>
