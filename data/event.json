@@ -17,7 +17,7 @@
     },
     {
       "label": "Ticket",
-      "value": "₹599 adults, ₹350 kids"
+      "value": "₹599 adults, ₹350 kids (Includes complimentary food)"
     },
     {
       "label": "Venue",
@@ -30,6 +30,10 @@
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=JDR%20Hotel%20Sundargarh&query_place_id=ChIJu553R0vtIDoRLsgk046jk54"
   },
   "tips": [
+    {
+      "title": "Complimentary Food",
+      "description": "Delicious complimentary food is included with all adult and kid tickets."
+    },
     {
       "title": "Dress for the circle",
       "description": "Chaniya choli, kediyu, kurta. Comfortable footwear helps after the third round."
@@ -129,13 +133,13 @@
       "id": "adult",
       "label": "Adults",
       "price": 599,
-      "note": ""
+      "note": "Includes complimentary food"
     },
     {
       "id": "kids",
       "label": "Kids",
       "price": 350,
-      "note": ""
+      "note": "Includes complimentary food"
     }
   ],
   "upi": {
@@ -146,12 +150,16 @@
   "sheetUrl": "https://script.google.com/macros/s/AKfycbwt2TpzMqbOISCYh2G780ezE17R4BdMJjX7ZkA8rhauLLA5umSPNnd-CZtT5pHQxYqq/exec",
   "contacts": [
     {
-      "name": "Puja Beriha",
+      "name": "Pooja Beriha",
       "phone": "919439880809"
     },
     {
       "name": "Sujata Patel",
       "phone": "919438515762"
+    },
+    {
+      "name": "Swati Purohit",
+      "phone": "917008240782"
     },
     {
       "name": "Suprit Kumar Naik",

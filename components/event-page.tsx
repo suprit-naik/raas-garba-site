@@ -196,7 +196,7 @@ export function EventPage() {
             </h1>
             <p className="mt-6 max-w-md text-lg font-medium text-foreground/90">{e.tagline}</p>
             <div className="mt-8 hidden md:block"><BookButton /></div>
-            <p className="mt-3 hidden text-sm text-foreground/70 md:block">Adults ₹599, kids ₹350. Instant booking confirmation on WhatsApp.</p>
+            <p className="mt-3 hidden text-sm text-foreground/70 md:block">Adults ₹599, kids ₹350 • Complimentary food included • Instant WhatsApp booking.</p>
           </div>
           <div className="hidden md:block relative">
             {/* Ulka Gupta cutout as hero visual */}
@@ -343,8 +343,8 @@ export function EventPage() {
       {/* Contact */}
       <section className="mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
         <h2 className="mb-2 font-serif text-3xl font-semibold italic text-primary md:text-4xl">Contact us</h2>
-        <p className="mb-6 font-medium text-foreground/80">Questions about tickets or the event? Call or WhatsApp any of us.</p>
-        <ul className="grid gap-4 md:grid-cols-3">
+        <p className="mb-6 font-medium text-foreground/80">For assistance contact:</p>
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {e.contacts.map((c) => (
             <li key={c.phone} className="glass-strong rounded-3xl p-5">
               <p className="text-lg font-bold">{c.name}</p>
@@ -364,6 +364,9 @@ export function EventPage() {
         <a href={e.instagram} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline">
           <Instagram className="h-4 w-4" /> @infiniteevents2026
         </a>
+        <p className="mt-8 text-[11px] font-medium tracking-wider text-foreground/40">
+          Website created by Suprit Kumar Naik
+        </p>
       </footer>
 
       {/* Mobile booking bar */}
