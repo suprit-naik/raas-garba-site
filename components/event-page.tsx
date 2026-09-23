@@ -196,7 +196,7 @@ export function EventPage() {
             </h1>
             <p className="mt-6 max-w-md text-lg font-medium text-foreground/90">{e.tagline}</p>
             <div className="mt-8 hidden md:block"><BookButton /></div>
-            <p className="mt-3 hidden text-sm text-foreground/70 md:block">Adults ₹599, kids ₹350. Pay by UPI, confirm on WhatsApp.</p>
+            <p className="mt-3 hidden text-sm text-foreground/70 md:block">Adults ₹599, kids ₹350. Instant booking confirmation on WhatsApp.</p>
           </div>
           <div className="hidden md:block relative">
             {/* Ulka Gupta cutout as hero visual */}
