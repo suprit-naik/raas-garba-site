@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: desc,
     images: ["/star/ulka-gupta-1.jpg"],
   },
-  icons: { icon: "/icon.svg", apple: "/apple-icon.png" },
+  icons: { icon: "/infinite-events-logo.jpg", apple: "/infinite-events-logo.jpg" },
 }
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#3A0A12" }

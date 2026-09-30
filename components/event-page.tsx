@@ -401,6 +401,31 @@ export function EventPage() {
 
   return (
     <main className="min-h-screen gradient-bg pb-28 md:pb-0">
+      {/* Top Navbar with Official Infinite Events Logo */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2.5 md:px-12">
+          <div className="flex items-center gap-3">
+            <img
+              src="/infinite-events-logo.jpg"
+              alt="Infinite Events Logo"
+              className="h-10 md:h-12 w-auto rounded-lg mix-blend-lighten object-contain drop-shadow-[0_0_15px_rgba(80,180,255,0.4)]"
+            />
+            <div>
+              <p className="font-serif text-base md:text-lg font-semibold italic text-primary leading-tight">Infinite Events</p>
+              <p className="text-[10px] md:text-xs text-foreground/60 tracking-wider uppercase font-medium">Presents Raas Garba S3</p>
+            </div>
+          </div>
+
+          <a
+            href="#book"
+            className="rounded-full bg-accent px-4 py-1.5 text-xs md:text-sm font-bold text-accent-foreground shadow-[0_0_15px_rgba(244,165,28,0.3)] transition hover:brightness-110 active:scale-95 flex items-center gap-1.5"
+          >
+            <Ticket className="h-3.5 w-3.5" />
+            <span>Book Tickets</span>
+          </a>
+        </div>
+      </header>
+
       <FloatingParticles />
 
       {/* Hero */}
@@ -409,9 +434,13 @@ export function EventPage() {
         <div className="absolute -right-40 -top-24 h-[130vw] w-[130vw] opacity-40 md:hidden"><Rings /></div>
 
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 pb-10 pt-20 md:grid-cols-[1.1fr_1fr] md:px-12 md:py-24">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 pb-10 pt-10 md:grid-cols-[1.1fr_1fr] md:px-12 md:py-20">
           <div>
-            <img src="/infinite-events-logo.jpg" alt="Infinite Events" className="h-20 w-auto mb-4 rounded-lg mix-blend-lighten fade-in-up" />
+            <img
+              src="/infinite-events-logo.jpg"
+              alt="Infinite Events"
+              className="h-24 md:h-28 w-auto mb-4 rounded-xl mix-blend-lighten fade-in-up drop-shadow-[0_0_30px_rgba(90,160,255,0.45)]"
+            />
             <h1 className="mt-3 font-serif font-semibold italic leading-[0.85] text-primary fade-in-up fade-in-up-d1">
               <span className="block text-7xl md:text-[8.5rem] shimmer-text">{e.title}</span>
               <span className="mt-3 block font-sans text-3xl font-light not-italic tracking-tight text-accent md:text-5xl fade-in-up fade-in-up-d2">{e.season}</span>
@@ -584,7 +613,11 @@ export function EventPage() {
       </section>
 
       <footer className="py-10 text-center md:py-14">
-        <img src="/infinite-events-logo.jpg" alt="Infinite Events" className="mx-auto h-20 w-auto rounded-lg mix-blend-lighten mb-4" />
+        <img
+          src="/infinite-events-logo.jpg"
+          alt="Infinite Events"
+          className="mx-auto h-24 w-auto rounded-xl mix-blend-lighten mb-4 drop-shadow-[0_0_30px_rgba(90,160,255,0.45)]"
+        />
         <p className="font-serif text-lg italic text-foreground/80">An Infinite Events experience</p>
         <a href={e.instagram} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline">
           <Instagram className="h-4 w-4" /> @infiniteevents2026
