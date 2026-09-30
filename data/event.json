@@ -176,35 +176,40 @@
       "url": "https://www.instagram.com/reel/DdlAS6RMqX8/",
       "title": "The Festive Euphoria",
       "tag": "Crowd Energy",
-      "caption": "Hundreds dancing in sync under the festive lights."
+      "caption": "Hundreds dancing in sync under the festive lights.",
+      "thumbnail": "/reels/reel-1.jpg"
     },
     {
       "id": "DPHQg6ekvKX",
       "url": "https://www.instagram.com/reel/DPHQg6ekvKX/",
       "title": "Dhol Beats & Dandiya Raas",
       "tag": "Live Rhythm",
-      "caption": "Heart-pounding dhol beats setting the night on fire."
+      "caption": "Heart-pounding dhol beats setting the night on fire.",
+      "thumbnail": "/reels/reel-2.jpg"
     },
     {
       "id": "DPJGbDYkzP3",
       "url": "https://www.instagram.com/reel/DPJGbDYkzP3/",
       "title": "Colour & Celebration",
       "tag": "Tradition & Glamour",
-      "caption": "Vibrant festive looks and smiles lighting up the floor."
+      "caption": "Vibrant festive looks and smiles lighting up the floor.",
+      "thumbnail": "/reels/reel-3.jpg"
     },
     {
       "id": "DPJLfepgVzR",
       "url": "https://www.instagram.com/reel/DPJLfepgVzR/",
       "title": "Electric Finale",
       "tag": "Grand Finale",
-      "caption": "The peak night energy where everyone joined the circle."
+      "caption": "The peak night energy where everyone joined the circle.",
+      "thumbnail": "/reels/reel-4.jpg"
     },
     {
       "id": "DPJUFilEgjR",
       "url": "https://www.instagram.com/reel/DPJUFilEgjR/",
       "title": "Garba Nights & Pure Joy",
       "tag": "Season 2 Highlights",
-      "caption": "Nonstop twirls, high spirits, and pure garba madness."
+      "caption": "Nonstop twirls, high spirits, and pure garba madness.",
+      "thumbnail": "/reels/reel-5.jpg"
     }
   ]
 }
