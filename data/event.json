@@ -3,7 +3,7 @@
   "title": "Raas Garba",
   "season": "Season 3",
   "tagline": "An evening of garba and dandiya in Sundargarh, with star guest Ulka Gupta, DJ Dev on the console, and Anchor Harsh hosting the night. Friday, 16 October, from 6 PM.",
-  "price": "₹350",
+  "price": "₹349",
   "instagram": "https://www.instagram.com/infiniteevents2026",
   "hosts": "Infinite Events",
   "info": [
@@ -17,7 +17,7 @@
     },
     {
       "label": "Ticket",
-      "value": "₹599 adults, ₹350 kids (Includes complimentary food)"
+      "value": "₹599 adults, ₹349 kids (Includes complimentary food)"
     },
     {
       "label": "Venue",
@@ -102,13 +102,13 @@
     "photos": [
       {
         "src": "/star/ulka-gupta-1.jpg",
-        "alt": "Ulka Gupta in traditional blue saree",
-        "label": "Festive Look"
+        "alt": "Ulka Gupta portrait",
+        "label": "Portrait"
       },
       {
         "src": "/star/ulka-gupta-2.jpg",
-        "alt": "Ulka Gupta portrait",
-        "label": "Portrait"
+        "alt": "Ulka Gupta in traditional blue saree",
+        "label": "Festive Look"
       }
     ]
   },
@@ -138,7 +138,7 @@
     {
       "id": "kids",
       "label": "Kids",
-      "price": 350,
+      "price": 349,
       "note": "Includes complimentary food"
     }
   ],
@@ -168,6 +168,43 @@
     {
       "name": "Mrinal Patel",
       "phone": "918328800644"
+    }
+  ],
+  "reels": [
+    {
+      "id": "DdlAS6RMqX8",
+      "url": "https://www.instagram.com/reel/DdlAS6RMqX8/",
+      "title": "The Festive Euphoria",
+      "tag": "Crowd Energy",
+      "caption": "Hundreds dancing in sync under the festive lights."
+    },
+    {
+      "id": "DPHQg6ekvKX",
+      "url": "https://www.instagram.com/reel/DPHQg6ekvKX/",
+      "title": "Dhol Beats & Dandiya Raas",
+      "tag": "Live Rhythm",
+      "caption": "Heart-pounding dhol beats setting the night on fire."
+    },
+    {
+      "id": "DPJGbDYkzP3",
+      "url": "https://www.instagram.com/reel/DPJGbDYkzP3/",
+      "title": "Colour & Celebration",
+      "tag": "Tradition & Glamour",
+      "caption": "Vibrant festive looks and smiles lighting up the floor."
+    },
+    {
+      "id": "DPJLfepgVzR",
+      "url": "https://www.instagram.com/reel/DPJLfepgVzR/",
+      "title": "Electric Finale",
+      "tag": "Grand Finale",
+      "caption": "The peak night energy where everyone joined the circle."
+    },
+    {
+      "id": "DPJUFilEgjR",
+      "url": "https://www.instagram.com/reel/DPJUFilEgjR/",
+      "title": "Garba Nights & Pure Joy",
+      "tag": "Season 2 Highlights",
+      "caption": "Nonstop twirls, high spirits, and pure garba madness."
     }
   ]
 }

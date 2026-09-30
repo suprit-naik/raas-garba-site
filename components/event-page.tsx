@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { CalendarDays, Clock, Ticket, MapPin, Instagram, Sparkles, ChevronLeft, ChevronRight, Camera, Phone, MessageCircle } from "lucide-react"
+import { CalendarDays, Clock, Ticket, MapPin, Instagram, Sparkles, ChevronLeft, ChevronRight, Camera, Phone, MessageCircle, ExternalLink } from "lucide-react"
 import e from "@/data/event.json"
 import { Booking } from "@/components/booking"
 
@@ -252,6 +252,127 @@ function Star() {
   )
 }
 
+function ReelsSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const scroll = (direction: "left" | "right") => {
+    if (containerRef.current) {
+      const scrollAmount = 350
+      containerRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const reels = (e as any).reels || []
+  if (!reels.length) return null
+
+  return (
+    <section className="reveal mx-auto max-w-6xl px-6 pb-12 md:px-12 md:pb-16">
+      {/* Header */}
+      <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-accent mb-3">
+            <Sparkles className="h-3.5 w-3.5 text-accent" />
+            Viral Energy & Moments
+          </div>
+          <h2 className="font-serif text-3xl font-semibold italic text-primary md:text-5xl">
+            From the Last Seasons
+          </h2>
+          <p className="mt-2 text-sm md:text-base font-medium text-foreground/80 max-w-xl leading-relaxed">
+            Feel the adrenaline, heart-thumping dhol beats, and unstoppable dancing from our previous editions. Catch a glimpse of what awaits you in Season 3!
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2 self-start md:self-end">
+          <a
+            href={e.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-white/5 px-4 py-2.5 text-xs font-semibold text-primary transition hover:bg-white/15"
+          >
+            <Instagram className="h-4 w-4" /> Follow @infiniteevents2026
+          </a>
+          <div className="hidden md:flex items-center gap-2 ml-1">
+            <button
+              onClick={() => scroll("left")}
+              aria-label="Previous reel"
+              className="grid h-10 w-10 place-items-center rounded-full border border-border/70 bg-white/5 text-foreground/80 transition hover:bg-white/15 hover:text-accent active:scale-95"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              aria-label="Next reel"
+              className="grid h-10 w-10 place-items-center rounded-full border border-border/70 bg-white/5 text-foreground/80 transition hover:bg-white/15 hover:text-accent active:scale-95"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Reels Track */}
+      <div
+        ref={containerRef}
+        className="scrollbar-hide -mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 pt-1 md:mx-0 md:px-0"
+      >
+        {reels.map((reel: any, idx: number) => (
+          <div
+            key={reel.id}
+            className="group relative w-[310px] sm:w-[330px] flex-none snap-start overflow-hidden rounded-3xl border border-border/60 bg-black/40 backdrop-blur-md p-4 transition-all duration-300 hover:border-accent/60 hover:shadow-[0_12px_36px_rgba(244,165,28,0.18)] flex flex-col justify-between"
+          >
+            <div>
+              {/* Card top */}
+              <div className="mb-3 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#833ab4]/25 via-[#fd1d1d]/25 to-[#fcb045]/25 border border-primary/20 px-2.5 py-0.5 text-[11px] font-bold text-accent">
+                  <Instagram className="h-3 w-3" />
+                  {reel.tag}
+                </span>
+                <span className="text-[11px] font-medium text-foreground/50">
+                  {idx + 1} of {reels.length}
+                </span>
+              </div>
+
+              <h3 className="font-serif text-lg font-semibold italic text-primary leading-snug">
+                {reel.title}
+              </h3>
+              <p className="mt-1 text-xs text-foreground/75 leading-relaxed line-clamp-2">
+                {reel.caption}
+              </p>
+            </div>
+
+            {/* Reel Embed Frame */}
+            <div className="mt-3.5 relative w-full h-[470px] rounded-2xl overflow-hidden bg-black/80 border border-white/10 shadow-inner">
+              <iframe
+                src={`https://www.instagram.com/reel/${reel.id}/embed/`}
+                className="h-full w-full border-0"
+                allowFullScreen
+                scrolling="no"
+                loading="lazy"
+                title={reel.title}
+              />
+            </div>
+
+            {/* Action Link */}
+            <a
+              href={reel.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3.5 flex items-center justify-center gap-2 rounded-xl bg-white/5 py-2.5 text-xs font-semibold text-foreground/90 transition hover:bg-accent/20 hover:text-accent active:scale-98"
+            >
+              <Instagram className="h-3.5 w-3.5 text-[#E1306C]" />
+              Watch on Instagram
+              <ExternalLink className="h-3 w-3 ml-0.5 opacity-70" />
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function BookButton({ className = "" }: { className?: string }) {
   return (
     <a href="#book"
@@ -283,7 +404,7 @@ export function EventPage() {
             </h1>
             <p className="mt-6 max-w-md text-lg font-medium text-foreground/90 fade-in-up fade-in-up-d3">{e.tagline}</p>
             <div className="mt-8 hidden md:block fade-in-up fade-in-up-d4"><BookButton /></div>
-            <p className="mt-3 hidden text-sm text-foreground/70 md:block fade-in-up fade-in-up-d4">Adults ₹599, kids ₹350 • Complimentary food included • Instant WhatsApp booking.</p>
+            <p className="mt-3 hidden text-sm text-foreground/70 md:block fade-in-up fade-in-up-d4">Adults ₹599, kids ₹349 • Complimentary food included • Instant WhatsApp booking.</p>
           </div>
           <div className="hidden md:block relative">
             {/* Ulka Gupta cutout as hero visual */}
@@ -410,6 +531,9 @@ export function EventPage() {
           </ul>
         </section>
       </div>
+
+      {/* Reels from Last Seasons */}
+      <ReelsSection />
 
       {/* Past events */}
       <section className="reveal mx-auto max-w-6xl px-6 pb-6 md:px-12 md:pb-10">
